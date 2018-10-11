@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body{
+	background-color:Lightblue;
+}
+
+button{
+    padding:10px;
+    color:red;
+}
+
+button:hover{
+	background-color:yellow;
+}
+
+button:active{
+	background-color:white;
+}
+
+</style>
+</head>
+<body id="BG">
+
+<img id="myImg" src="http://www.annsfinegiftsblog.com/wp-content/uploads/2013/09/Black-Forest.jpg">
+<h2 id="message"> Some of the popular Ice cream</h2>
+
+<button type="button" onclick="changeBGYellow()">Change BG to Yellow.</button>
+<button type="button" onclick="changeBGBlue()">Change BG to Blue.</button>
+<button type="button" onclick="changeImage1()">Vanilla.</button>
+<button type="button" onclick="changeImage2()">Chocolate.</button>
+
+
+<script>
+
+var numberOfClicks=0;
+var Image1="https://d13z1xw8270sfc.cloudfront.net/resize/408882/1473574552332_vanillavegansoftservetemptationmixcanada.jpg/400/400/0/&no_shipping=1";
+var Image2="http://www.annsfinegiftsblog.com/wp-content/uploads/2013/09/Black-Forest.jpg";
+
+
+
+function changeImage1(){
+
+var imageElement=document.getElementById("myImg");
+imageElement.src=Image1;
+
+}
+
+function changeImage2(){
+
+var imageElement=document.getElementById("myImg");
+imageElement.src=Image2;
+
+}
+
+
+function changeBGYellow()
+{
+
+ var bodyElement= document.getElementById("BG");
+ bodyElement.style.backgroundColor="yellow";
+ 
+clickedButton();
+}
+
+function changeBGBlue()
+{
+
+ var bodyElement= document.getElementById("BG");
+ bodyElement.style.backgroundColor="blue";
+
+clickedButton();
+
+}
+
+function clickedButton()
+{
+  //1.Updating number of Clicks.
+  numberOfClicks = numberOfClicks +1;
+  //2.Getting message element.
+  var messageElement= document.getElementById("message"); 
+   //3.Changing message text.
+   messageElement.innerHTML="YOU HAVE CLICKED "+numberOfClicks+" times.";
+}
+
+
+</script>
+
+
+ 
+ 
+</body>
+</html>
