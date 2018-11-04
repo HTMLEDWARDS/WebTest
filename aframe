@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello, WebVR! • A-Frame</title>
+    <meta name="description" content="Hello, WebVR! • A-Frame">
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene background="color: #ECECEC">
+      <a-entity position="0 0 1">
+       	<a-camera wasd-controls look-controls>
+                 <a-cursor color="yellow"></a-cursor>
+       	</a-camera>
+       </a-entity>
+
+      <a-box id="box" onclick="changeposition(this)" position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow></a-box>
+      <a-sphere id="sphere" onclick="changeposition(this)" position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow></a-sphere>
+      <a-cylinder id="cyl" onclick="grow(this)" position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" shadow></a-cylinder>
+      <a-plane id="plane" onclick="shrink(this)" position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" shadow></a-plane>
+      <a-cone onclick="rotateY(this)" color="tomato" radius-bottom="2" position="-2 0.5 -3 " radius-top="0.5"></a-cone>
+    </a-scene>
+
+   
+   <script>
+     
+ var ypos= 0.5;
+ var xpos= -1;    
+     
+function changeposition(element)    
+     {
+       element.setAttribute('position', {x:xpos, y:ypos, z:-3});
+       ypos= ypos+0.1;
+       xpos= xpos-0.1;
+     }
+      
+     var growX, growY, growZ;
+     
+     growX=1;
+     growY=1;
+     growZ=1;
+     
+      function grow(elem)
+     {
+          elem.object3D.scale.set(growX, growY, growZ);  
+          growX= growX+0.01;
+          growY= growY+0.02;
+          growZ= growZ+0.03;
+     }
+      
+     var shrinkSize=1;
+     
+     function shrink(elem)
+     {
+     elem.object3D.scale.set(shrinkSize, shrinkSize, shrinkSize);    
+     shrinkSize= shrinkSize-0.1;
+     }
+     var rotY=0;
+     function rotateY(el)
+     {
+       el.setAttribute('rotation', {x:0, y:rotY, z:-90}); 
+       rotY= rotY + 10;
+     }
+      
+    </script>
+  </body>
+</html>
+
